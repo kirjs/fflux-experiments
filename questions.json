@@ -1,0 +1,31 @@
+[
+  {
+    "question": "What is the difference between null and undefined?",
+    "tags": [
+      "javascript",
+      "types"
+    ]
+  },
+  {
+    "question": "What is hoisting",
+    "tags": [
+      "javascript",
+      "types"
+    ]
+  },
+  {
+    "question": "```function(){ console.log( this )}``` what the output will be?",
+    "tags": [
+      "javascript",
+      "context"
+    ]
+  },
+  {
+    "question": "How can the context of the function be different?",
+    "tags": [
+      "javascript",
+      "types"
+    ]
+  }
+
+]
