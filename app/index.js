@@ -1,8 +1,10 @@
 var dispatcher = FFlux.createDispatcher();
 
+
 var questions = [
     {
         "text": "What is the difference between null and undefined?",
+        "answers": ["ONE", "TWO", "THREE"],
         "tags": [
             "javascript",
             "types"
@@ -61,7 +63,21 @@ dispatcher.register(questionStore);
 
 var Question = React.createClass({
     render: function () {
-        return React.DOM.div(null, React.DOM.span(null, this.props.question.text));
+        return React.DOM.div(null, React.DOM.span(null, this.props.question));
+    }
+});
+var Answer = React.createClass({
+    render: function () {
+        return React.DOM.li(null, this.props.answer);
+    }
+});
+var Answers = React.createClass({
+    render: function () {
+
+        return React.DOM.ul(null,
+            this.props.answers.map(function (answer) {
+                return Answer({answer: answer});
+            }));
     }
 });
 
@@ -76,7 +92,14 @@ var Post = React.createClass({
     },
 
     render: function () {
-        return React.createElement(Question, {question: questionStore.getQuestion()});
+        var question = questionStore.getQuestion();
+        return React.DOM.div(null,
+            [
+                Question({question: question.text}),
+                Answers({answers: question.answers})
+            ]
+        );
+
 
     }
 });
